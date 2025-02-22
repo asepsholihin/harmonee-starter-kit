@@ -6,6 +6,6 @@ CREATE TABLE `promo_sale_products` (
 2 : percentage',
   `discount_amount` INTEGER,
   `price_after_discount` BIGINT NOT NULL,
-  `deleted_at` TIMESTAMP(0),
+  `deleted_at` TIMESTAMP(0) NULL,
   `deleted_by` INTEGER
 ) ENGINE=InnoDB;

@@ -3,9 +3,9 @@ CREATE TABLE `payment_methods` (
   `name` BIGINT NOT NULL,
   `description` BIGINT NOT NULL,
   `created_at` TIMESTAMP(0) NOT NULL,
-  `created_by` INTEGER NOT NULL,
-  `updated_at` TIMESTAMP(0) NOT NULL,
-  `updated_by` INTEGER NOT NULL,
-  `deleted_at` TIMESTAMP(0) NOT NULL,
-  `deleted_by` INTEGER NOT NULL
+  `created_by` INTEGER,
+  `updated_at` TIMESTAMP(0) NULL,
+  `updated_by` INTEGER,
+  `deleted_at` TIMESTAMP(0) NULL,
+  `deleted_by` INTEGER
 ) ENGINE=InnoDB;

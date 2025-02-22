@@ -9,10 +9,10 @@ CREATE TABLE `products` (
   `status` BOOLEAN NOT NULL DEFAULT '1',
   `qty` INTEGER NOT NULL,
   `min_stock_reminder` INTEGER NOT NULL DEFAULT '10',
-  `created_at` TIMESTAMP(0),
+  `created_at` TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP,
   `created_by` INTEGER,
-  `updated_at` TIMESTAMP(0),
+  `updated_at` TIMESTAMP(0) NULL,
   `updated_by` INTEGER,
-  `deleted_at` TIMESTAMP(0),
+  `deleted_at` TIMESTAMP(0) NULL,
   `deleted_by` INTEGER
 ) ENGINE=InnoDB;

@@ -22,10 +22,10 @@ CREATE TABLE `orders` (
   `shipping_company_id` INTEGER,
   `shipping_type` VARCHAR(255),
   `shipping_est` VARCHAR(255),
-  `created_at` TIMESTAMP(0),
+  `created_at` TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP,
   `created_by` INTEGER,
-  `updated_at` TIMESTAMP(0),
+  `updated_at` TIMESTAMP(0) NULL,
   `updated_by` INTEGER,
-  `deleted_at` TIMESTAMP(0),
+  `deleted_at` TIMESTAMP(0) NULL,
   `deleted_by` INTEGER
 ) ENGINE=InnoDB;

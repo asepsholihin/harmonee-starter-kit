@@ -1,0 +1,27 @@
+{{ define "section-detail" }}
+    <div class="px-10">
+        <div>
+            <form method="POST" action="/section/update/{{ .section.ID }}">
+                <div class="grid grid-cols-3">
+                    <div class="mb-3">
+                        <label for="name" class="font-bold mb-1 block">Section Name</label>
+                        <input id="name" name="name" type="text" class="w-full h-12 p-3 border rounded" placeholder="Section Name" value="{{ .section.Name }}">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2">
+                    <div class="mb-3">
+                        <label for="description" class="font-bold mb-1 block">Section Description</label>
+                        <textarea id="description" name="description" class="w-full h-48 p-3 border rounded" placeholder="Section Description">{{ .section.Description }}</textarea>
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <button type="submit" class="py-2 px-4 rounded bg-slate-900 text-white font-bold text-sm">Save Changes</button>
+                    <a class="py-2 px-4 ml-3 rounded border border-gray-300 font-bold text-sm" href="/sections">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {{ template "flash-message" . }}
+{{ end }}

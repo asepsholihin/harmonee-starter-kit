@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/output.css">
+    <link rel="stylesheet" href="/public/third-party/sweetalert2/dist/sweetalert2.min.css">
+    <script src="/public/third-party/feather-icons/dist/feather.min.js"></script>
+    <script src="/public/third-party/sweetalert2/dist/sweetalert2.min.js"></script>
+    <title>harmonee studio.</title>
+</head>
+<body>
+    <div class="">
+        <div class="flex">
+            <div class="grid w-1/5 h-dvh border-r border-gray-300">
+                <div class="h-full ">
+                    <div class="p-8 mb-5">
+                        <h1 class="text-xl font-bold">harmonee studio.</h1>
+                    </div>
+                    <div>
+                        <ul class="cursor-pointer">
+                            <li class="mx-5 px-5 py-3 hover:bg-gray-200 rounded-md"><a href="/" class="flex items-center"><i data-feather="home" class="w-4 h-4 mr-2"></i> Dashboard</a></li>
+                            <li class="mx-5 px-5 py-3 hover:bg-gray-200 rounded-md"><a href="/sections" class="flex items-center"><i data-feather="layers" class="w-4 h-4 mr-2"></i> Sections</a></li>
+                            <li class="mx-5 px-5 py-3 hover:bg-gray-200 rounded-md"><a href="/categories" class="flex items-center"><i data-feather="grid" class="w-4 h-4 mr-2"></i> Categories</a></li>
+                            <li class="mx-5 px-5 py-3 hover:bg-gray-200 rounded-md"><a href="/posts" class="flex items-center"><i data-feather="feather" class="w-4 h-4 mr-2"></i> Posts</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="w-4/5 h-dvh py-8">
+                <div>
+                    <div class="flex justify-between items-center px-10">
+                        <div>
+                            <h1 class="text-xl font-bold">halo, {{ .username }}</h1>
+                        </div>
+                        <div>
+                            <p class="font-medium">{{ .date }}</p>
+                        </div>
+                    </div>
+
+                    <div class="px-10">
+                        <p>{{ .title }}</p>
+                    </div>
+                
+                    <div class="w-full my-5 py-10 border-t border-gray-300">
+                        {{ yield }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="/public/js/script.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{{ define "pagination" }}
+    <div class="w-full border-t border-gray-200 font-mono mt-5">
+        <nav class="pagination flex flex-wrap justify-center text-gray-700 -mt-px">
+            <a class="p-2 mx-1" href="{{ .pagination.PrevPage }}">
+                &#8592;
+            </a></span>
+            {{ range $i, $link := .pagination.Links }}
+                {{ if $link.IsCurrentPage }}
+                    <a class="p-2 mx-1 current text-gray-800 border-t border-black font-bold">{{ $link.Page }}</a>
+                {{ else }}
+                    <a class="p-2 mx-1 border-t border-transparent hover:border-gray-700" href="{{ $link.Url }}">{{ $link.Page }}</a>
+                {{ end }}
+            {{ end }}
+            <a class="p-2 mx-1" href="{{ .pagination.NextPage }}">
+                &#8702;
+            </a>
+        </nav>
+    </div>
+{{ end }}

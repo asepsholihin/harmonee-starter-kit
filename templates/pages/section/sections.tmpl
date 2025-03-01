@@ -1,0 +1,58 @@
+{{ define "sections" }}
+    <div>
+        <div class="flex justify-end px-10 mb-3">
+            <a href="/create-section" class="py-2 px-4 rounded bg-slate-900 text-white font-bold text-sm">Create Section</a>
+        </div>
+
+        <table class="border-collapse table-auto w-full text-sm">
+            <thead>
+                <tr>
+                    <th class="border-b border-gray-200 font-bold p-4 py-3 text-left">Section Name</th>
+                    <th class="border-b border-gray-200 font-bold p-4 py-3 text-left">Description</th>
+                    <th class="border-b border-gray-200 font-bold p-4 py-3 text-left">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range $i, $section := .sections }}
+                <tr>
+                    <td class="border-b border-slate-100 p-4">{{ $section.Name }}</td>
+                    <td class="border-b border-slate-100 p-4">{{ $section.Description }}</td>
+                    <td class="border-b border-slate-100 p-4">
+                        <div class="flex gap-2">
+                            <a href="/section/{{ $section.ID }}" class="p-2 rounded text-white bg-slate-900">
+                                <i data-feather="edit" class="w-4 h-4"></i>
+                            </a>
+                            <a href="#" class="p-2 rounded text-white bg-red-700" onclick="onDelete(`{{ $section.ID }}`)">
+                                <i data-feather="trash" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {{ end }}
+            </tbody>
+        </table>
+        {{ template "pagination" . }}
+        {{ template "flash-message" . }}
+    </div>
+
+
+    <script>
+
+        function onDelete(ID) {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/section/delete/" + ID;
+                    post("/section/delete/" + ID, null, "DELETE");
+                }
+            });
+        }
+    </script>
+{{ end }}

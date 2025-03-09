@@ -2,7 +2,11 @@
  export default {
     content: ["./templates/**/*.{tmpl,html,js}"],
     theme: {
-      extend: {},
+      extend: {
+        fontFamily: {
+          'sans': ['Roboto', 'Helvetica', 'Arial', 'sans-serif']
+        }
+      },
     },
     plugins: [],
   }
